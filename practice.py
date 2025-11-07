@@ -268,3 +268,136 @@ obj.deposit(10000)
 obj.withdraw(20000)
 obj.checkBalance()
 obj.withdraw(50000) 
+
+
+
+
+
+
+
+
+
+
+
+
+class Employee:
+    def __init__(self, name, age, emp_id, salary):
+        self.name = name
+        self.age = age
+        self.__id = emp_id
+        self.__salary = salary
+
+    # Getter methods to access private data
+    def get_id(self):
+        return self.__id
+
+    def get_salary(self):
+        return self.__salary
+
+    # Setter methods (if salary/id need to be updated)
+    def set_id(self, emp_id):
+        self.__id = emp_id
+
+    def set_salary(self, salary):
+        self.__salary = salary
+
+    def getdata(self):
+        print(f"Name: {self.name}")
+        print(f"Age: {self.age}")
+        print(f"Employee ID: {self.__id}")
+        print(f"Salary: {self.__salary}")
+
+
+class Develper(Employee):
+    def __init__(self, name, age, emp_id, salary, programming_language):
+        super().__init__(name, age, emp_id, salary)
+        self.programming_language = programming_language
+
+    def __del__(self):
+        pass
+
+    def parentcheck(self):
+        print("Is Developer subclass of Employee?", issubclass(Develper, Employee))
+
+    def getdata(self):
+        print("\nDeveloper Details:")
+        super().getdata()
+        print(f"Programming Language: {self.programming_language}")
+
+
+class Manager(Employee):
+    def __init__(self, name, age, emp_id, salary, department):
+        super().__init__(name, age, emp_id, salary)
+        self.department = department
+
+    def __del__(self):
+        pass
+
+    def parentcheck(self):
+        print("Is Manager subclass of Employee?", issubclass(Manager, Employee))
+
+    def getdata(self):
+        print("\nManager Details:")
+        super().getdata()
+        print(f"Department: {self.department}")
+
+
+# Main Program
+man = []
+dev = []
+
+print("--- Python OOP Project: Employee Management System --- \n")
+
+while True:
+    print("Choose an operation:")
+    print("1. Create a Developer")
+    print("2. Create a Manager")
+    print("3. Show Details")
+    print("0. Exit \n")
+
+    choice = int(input("Enter your choice: "))
+    print()
+
+    if choice == 1:
+        name = input("Enter Name: ")
+        age = int(input("Enter Age: "))
+        emp_id = input("Enter Employee ID: ")
+        salary = int(input("Enter Salary: "))
+        pro = input("Enter your Programming Language: ")
+
+        dobj = Develper(name, age, emp_id, salary, pro)
+        dev.append(dobj)
+        print(f"\nDeveloper created: {name}, Age: {age}, ID: {emp_id}, Salary: {salary}, Language: {pro}\n")
+
+    elif choice == 2:
+        name = input("Enter Name: ")
+        age = int(input("Enter Age: "))
+        emp_id = input("Enter Employee ID: ")
+        salary = int(input("Enter Salary: "))
+        dep = input("Enter Department: ")
+
+        mobj = Manager(name, age, emp_id, salary, dep)
+        man.append(mobj)
+        print(f"\nManager created: {name}, Age: {age}, ID: {emp_id}, Salary: {salary}, Department: {dep}\n")
+
+    elif choice == 3:
+        print("Choose details to show:")
+        print("1. Developer")
+        print("2. Manager\n")
+
+        ch = int(input("Enter your choice: "))
+        if ch == 1:
+            for obj in dev:
+                obj.getdata()
+        elif ch == 2:
+            for obj in man:
+                obj.getdata()
+        else:
+            print("Invalid choice.\n")
+
+    elif choice == 0:
+        print("\nExiting the system. Goodbye!")
+        break
+
+    else:
+        print("Invalid choice.\n")

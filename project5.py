@@ -1,48 +1,59 @@
 class Employee:
-    def __init__(self,name,age):
+    def __init__(self,name,age,id,salary):
         self.name=name
         self.age=age
+        self.__id=id
+        self.__salary=salary
 
     def getdata(self):
-        pass
+        return self.__id
+    
+    def getdata(self):
+        return self.__salary
+    
+    def set_id(self,id):
+        self.__id =id
+
+    def set_salary(self, salary):
+        self.__salary = salary
+
+    def getdata(self):
+        print(f"Name: {self.name}")
+        print(f"Age: {self.age}")
+        print(f"Employee ID: {self.__id}")
+        print(f"Salary: {self.__salary}")
 
 class Develper(Employee):
-    def __init__(self, name, age,id,salary):
-        self.id=id
-        self.salary=salary
-        super().__init__(name, age)
+    def __init__(self, name, age, id, salary, programing_language ):
+        self.programing_language=programing_language
+        super().__init__(name, age,id,salary)
 
-    # def set_sale(self,id,salary):  
-    #     self.id =id
-    #     self.salary=salary
+    def __del__(self):
+        pass
+
+    def parentcheck(self):
+        issubclass(Develper,Employee)
 
     def getdata(self):
         print("Devoper Details: ")
-        print(f"Name: {self.name}")
-        print(f"Age: {self.age}")
-        print(f"Employrr ID: {self.id}")
-        print(f"Salary: {self.salary}")
-        
+        super().getdata()
+        print(f"Programming Language: {self.programing_language}")
 
 class Manager(Employee):
     def __init__(self, name, age,id,salary,department):
-        self.id=id
-        self.salary=salary
-        self.deparement=department
-        super().__init__(name, age)
+        self.department=department
+        super().__init__(name, age, id, salary)
 
-    # def set_show(self,id,salary):  
-    #     self.id =id
-    #     self.salary=salary
+    def __del__(self):
+        pass
+
+    def parentcheck(self):
+        issubclass(Manager,Employee)
 
     def getdata(self):
-        print("Devoper Details: ")
-        print(f"Name: {self.name}")
-        print(f"Age: {self.age}")
-        print(f"Employrr ID: {self.id}")
-        print(f"Salary: {self.salary}")
-    
-
+        print("Manager Details: ")
+        super().getdata()
+        print(f"Department: {self.department}")
 
 man=[]  
 dev=[]
@@ -58,29 +69,18 @@ while True:
 
     choice=int(input("Enter your choice: "))
     print()
-
-    # if choice==1:
-    #     name=input("Enter Name: ")
-    #     age=int(input("Enter Age: "))
-        
-    #     eobj=Employee(name,age)
-    #     emp.append(eobj)
-    #     print()
-    #     print(f"Employee created with name: {name} and age: {age}. \n ")
-    #     print("--- Choose another operation --- \n ")
-
-
+    
     if choice==1:
         name=input("Enter Name: ")
         age=int(input("Enter Age: "))
         id=input("Enter Employee ID: ")
         salary=int(input("Enter Salary: ")) 
-        dobj=Develper(name,age,id,salary)
-        dev.append(dobj)
-        print()
-        print(f"Devloper created with name: {name}, age: {age}, ID: {id}, salary: {salary}. \n")
-        print("--- Choose another operation ---\n")
+        pro=input("Enter your programing language: ")
 
+        dobj=Develper(name,age,id,salary,pro)
+        dev.append(dobj)
+        print(f"\nDevloper created with name: {name}, age: {age}, ID: {id}, salary: {salary}. \n")
+        print("--- Choose another operation ---\n")
 
     elif choice==2:
         name=input("Enter Name: ")
@@ -91,9 +91,7 @@ while True:
 
         mobj=Manager(name,age,id,salary,dep)
         man.append(mobj)
-        print()
-
-        print(f"Manager created with name: {name}, age: {age}, ID: {id}, salary: {salary}, and department: {dep}\n ")
+        print(f"\nManager created with name: {name}, age: {age}, ID: {id}, salary: {salary}, and department: {dep}\n ")
         print("--- Choose another operation ---\n")
 
     elif choice==3:
@@ -106,21 +104,23 @@ while True:
         if choice==1:
            for obj in dev:
                 obj.getdata()
-        
+                print()
+
         elif choice==2:
             for obj in man:
                 obj.getdata()
-
+                print()
         else:
-            print("your choice is not valid.")
+            print("Invalid choice.\n")
+            break
 
-    elif choice==5:
+    elif choice==0:
         print("Exiting the system. All resources have been freed. \n")
         print("Goodbye!")
         break
 
     else:
-        print("your choice is not valid.")
-   
+        print("your choice is not valid.\n")
+        break
 
 
