@@ -231,45 +231,43 @@
 
 
 
-class Bank:
-    def __init__(self, acholdername, acno, balance):
-        self.acholdername = acholdername
-        self.acno = acno
-        self.balance = balance
+# class Bank:
+#     def __init__(self, acholdername, acno, balance):
+#         self.acholdername = acholdername
+#         self.acno = acno
+#         self.balance = balance
 
-    def deposit(self, amount):
-        if amount > 0:
-            self.balance += amount
-            print(f"₹{amount} deposited successfully.")
-        else:
-            print("Invalid deposit amount.")
+#     def deposit(self, amount):
+#         if amount > 0:
+#             self.balance += amount
+#             print(f"₹{amount} deposited successfully.")
+#         else:
+#             print("Invalid deposit amount.")
             
-    def withdraw(self, amount):
-        if amount > self.balance:
-            print("Insufficient balance!")
-        elif amount <= 0:
-            print("Invalid withdrawal amount.")
-        else:
-            self.balance -= amount
-            print(f"₹{amount} withdrawn successfully.")
+#     def withdraw(self, amount):
+#         if amount > self.balance:
+#             print("Insufficient balance!")
+#         elif amount <= 0:
+#             print("Invalid withdrawal amount.")
+#         else:
+#             self.balance -= amount
+#             print(f"₹{amount} withdrawn successfully.")
 
-    def checkBalance(self):
-        print(f"Available Balance: ₹{self.balance}")
-
-
-obj = Bank("Janavi Gol", 123456, 50000)
-
-print("🏦 Welcome to the Bank System")
-print(f"Account Holder: {obj.acholdername}")
-print(f"Account Number: {obj.acno}\n")
-
-obj.checkBalance()
-obj.deposit(10000)
-obj.withdraw(20000)
-obj.checkBalance()
-obj.withdraw(50000) 
+#     def checkBalance(self):
+#         print(f"Available Balance: ₹{self.balance}")
 
 
+# obj = Bank("Janavi Gol", 123456, 50000)
+
+# print("🏦 Welcome to the Bank System")
+# print(f"Account Holder: {obj.acholdername}")
+# print(f"Account Number: {obj.acno}\n")
+
+# obj.checkBalance()
+# obj.deposit(10000)
+# obj.withdraw(20000)
+# obj.checkBalance()
+# obj.withdraw(50000) 
 
 
 
@@ -280,124 +278,192 @@ obj.withdraw(50000)
 
 
 
-class Employee:
-    def __init__(self, name, age, emp_id, salary):
-        self.name = name
-        self.age = age
-        self.__id = emp_id
-        self.__salary = salary
-
-    # Getter methods to access private data
-    def get_id(self):
-        return self.__id
-
-    def get_salary(self):
-        return self.__salary
-
-    # Setter methods (if salary/id need to be updated)
-    def set_id(self, emp_id):
-        self.__id = emp_id
-
-    def set_salary(self, salary):
-        self.__salary = salary
-
-    def getdata(self):
-        print(f"Name: {self.name}")
-        print(f"Age: {self.age}")
-        print(f"Employee ID: {self.__id}")
-        print(f"Salary: {self.__salary}")
 
 
-class Develper(Employee):
-    def __init__(self, name, age, emp_id, salary, programming_language):
-        super().__init__(name, age, emp_id, salary)
-        self.programming_language = programming_language
+# class Employee:
+#     def __init__(self, name, age, emp_id, salary):
+#         self.name = name
+#         self.age = age
+#         self.__id = emp_id
+#         self.__salary = salary
 
-    def __del__(self):
-        pass
+#     # Getter methods to access private data
+#     def get_id(self):
+#         return self.__id
 
-    def parentcheck(self):
-        print("Is Developer subclass of Employee?", issubclass(Develper, Employee))
+#     def get_salary(self):
+#         return self.__salary
 
-    def getdata(self):
-        print("\nDeveloper Details:")
-        super().getdata()
-        print(f"Programming Language: {self.programming_language}")
+#     # Setter methods (if salary/id need to be updated)
+#     def set_id(self, emp_id):
+#         self.__id = emp_id
 
+#     def set_salary(self, salary):
+#         self.__salary = salary
 
-class Manager(Employee):
-    def __init__(self, name, age, emp_id, salary, department):
-        super().__init__(name, age, emp_id, salary)
-        self.department = department
-
-    def __del__(self):
-        pass
-
-    def parentcheck(self):
-        print("Is Manager subclass of Employee?", issubclass(Manager, Employee))
-
-    def getdata(self):
-        print("\nManager Details:")
-        super().getdata()
-        print(f"Department: {self.department}")
+#     def getdata(self):
+#         print(f"Name: {self.name}")
+#         print(f"Age: {self.age}")
+#         print(f"Employee ID: {self.__id}")
+#         print(f"Salary: {self.__salary}")
 
 
-# Main Program
-man = []
-dev = []
+# class Develper(Employee):
+#     def __init__(self, name, age, emp_id, salary, programming_language):
+#         super().__init__(name, age, emp_id, salary)
+#         self.programming_language = programming_language
 
-print("--- Python OOP Project: Employee Management System --- \n")
+#     def __del__(self):
+#         pass
+
+#     def parentcheck(self):
+#         print("Is Developer subclass of Employee?", issubclass(Develper, Employee))
+
+#     def getdata(self):
+#         print("\nDeveloper Details:")
+#         super().getdata()
+#         print(f"Programming Language: {self.programming_language}")
+
+
+# class Manager(Employee):
+#     def __init__(self, name, age, emp_id, salary, department):
+#         super().__init__(name, age, emp_id, salary)
+#         self.department = department
+
+#     def __del__(self):
+#         pass
+
+#     def parentcheck(self):
+#         print("Is Manager subclass of Employee?", issubclass(Manager, Employee))
+
+#     def getdata(self):
+#         print("\nManager Details:")
+#         super().getdata()
+#         print(f"Department: {self.department}")
+
+
+# # Main Program
+# man = []
+# dev = []
+
+# print("--- Python OOP Project: Employee Management System --- \n")
+
+# while True:
+#     print("Choose an operation:")
+#     print("1. Create a Developer")
+#     print("2. Create a Manager")
+#     print("3. Show Details")
+#     print("0. Exit \n")
+
+#     choice = int(input("Enter your choice: "))
+#     print()
+
+#     if choice == 1:
+#         name = input("Enter Name: ")
+#         age = int(input("Enter Age: "))
+#         emp_id = input("Enter Employee ID: ")
+#         salary = int(input("Enter Salary: "))
+#         pro = input("Enter your Programming Language: ")
+
+#         dobj = Develper(name, age, emp_id, salary, pro)
+#         dev.append(dobj)
+#         print(f"\nDeveloper created: {name}, Age: {age}, ID: {emp_id}, Salary: {salary}, Language: {pro}\n")
+
+#     elif choice == 2:
+#         name = input("Enter Name: ")
+#         age = int(input("Enter Age: "))
+#         emp_id = input("Enter Employee ID: ")
+#         salary = int(input("Enter Salary: "))
+#         dep = input("Enter Department: ")
+
+#         mobj = Manager(name, age, emp_id, salary, dep)
+#         man.append(mobj)
+#         print(f"\nManager created: {name}, Age: {age}, ID: {emp_id}, Salary: {salary}, Department: {dep}\n")
+
+#     elif choice == 3:
+#         print("Choose details to show:")
+#         print("1. Developer")
+#         print("2. Manager\n")
+
+#         ch = int(input("Enter your choice: "))
+#         if ch == 1:
+#             for obj in dev:
+#                 obj.getdata()
+#         elif ch == 2:
+#             for obj in man:
+#                 obj.getdata()
+#         else:
+#             print("Invalid choice.\n")
+
+#     elif choice == 0:
+#         print("\nExiting the system. Goodbye!")
+#         break
+
+#     else:
+#         print("Invalid choice.\n")
+
+
+
+main=[]
+
+print("Welcome to our planner !\n")
 
 while True:
-    print("Choose an operation:")
-    print("1. Create a Developer")
-    print("2. Create a Manager")
-    print("3. Show Details")
-    print("0. Exit \n")
+    print("1.creat file")
+    print("2.write file")
+    print("3.append file")
+    print("4.read file")
+    print("0.Exit \n ")
 
-    choice = int(input("Enter your choice: "))
-    print()
+    choice=int(input("Enter your choice : "))
 
-    if choice == 1:
-        name = input("Enter Name: ")
-        age = int(input("Enter Age: "))
-        emp_id = input("Enter Employee ID: ")
-        salary = int(input("Enter Salary: "))
-        pro = input("Enter your Programming Language: ")
+    if choice==1:
+        print()
+        cre=input("your file name: ")
+        file=open(cre,"w")
+        file.write("")
+        file.close()
 
-        dobj = Develper(name, age, emp_id, salary, pro)
-        dev.append(dobj)
-        print(f"\nDeveloper created: {name}, Age: {age}, ID: {emp_id}, Salary: {salary}, Language: {pro}\n")
+        main.append(cre)
+        print()
+        print("your file is created ! \n")
 
-    elif choice == 2:
-        name = input("Enter Name: ")
-        age = int(input("Enter Age: "))
-        emp_id = input("Enter Employee ID: ")
-        salary = int(input("Enter Salary: "))
-        dep = input("Enter Department: ")
+    elif choice==2:
+        print()
+        con=input("your content print in this file : ")
+        file=open(cre,"w")
+        file.write(con)
+        file.close()
 
-        mobj = Manager(name, age, emp_id, salary, dep)
-        man.append(mobj)
-        print(f"\nManager created: {name}, Age: {age}, ID: {emp_id}, Salary: {salary}, Department: {dep}\n")
+        main.append(con)
+        print()
+        print("your content is successfully printed in this file ! \n")
 
-    elif choice == 3:
-        print("Choose details to show:")
-        print("1. Developer")
-        print("2. Manager\n")
+    elif choice==3:
+        print()
+        app=input("your updeted content printed in this file : ")
+        file=open(cre,"a")
+        file.write(app)
+        file.close()
 
-        ch = int(input("Enter your choice: "))
-        if ch == 1:
-            for obj in dev:
-                obj.getdata()
-        elif ch == 2:
-            for obj in man:
-                obj.getdata()
-        else:
-            print("Invalid choice.\n")
+        main.append(app)
 
-    elif choice == 0:
-        print("\nExiting the system. Goodbye!")
+        print("your content updeted successfully !\n")
+
+    elif choice==4:
+        print()
+        print("your content : \n")
+
+        for i in main:
+            print(i)
+        print()
+
+    elif choice==0:
+        print()
+        print("Exit to our planner !\n")
         break
 
     else:
-        print("Invalid choice.\n")
+        print()
+        print("your choice is not valid !\n")
+        break
