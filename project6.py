@@ -1,5 +1,3 @@
-import os
-
 class journalmanager:
     def __init__(self):
         self.filename="journal.txt"
@@ -24,6 +22,7 @@ class journalmanager:
                 if entries:
                     for i in entries:
                         print(i)
+                        print()
                 else:
                     print("\n No journal entries found .Start by adding a new entry ! ")
         except Exception:
