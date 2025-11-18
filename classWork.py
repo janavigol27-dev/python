@@ -44,4 +44,21 @@ file.close()
 # file.close()  # Closing the file
 
 
+print("Date Formatting : \n")
+                date=input("Enter date (YYYY-MM-DD) : ")
+                date=datetime.strptime(date,"%Y-%m-%d")
+                print("1.DD-MM-YYYY")
+                print("2.MM-DD-YYYY")
+                print("3.YYYY-MM-DD")
+                print("4.DD MM YYYY")
+                print("MM DD,YYYY \n")
 
+                choice=int(input("Choose formate : "))
+                print()
+
+                if choice==1:
+                    print(date.strftime("%d-%m-%Y"))
+                elif choice==2:
+                    print(date.strftime("%m-%d-%Y"))
+                elif choice==3:
+                    print(date.strftime("%Y-%m-%d"))
