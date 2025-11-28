@@ -124,6 +124,7 @@ class DataAnalytics:
             print("split array : ")
             result = np.split(DataAnalytics.arr, parts)
             print("splitted Array : \n",result )
+            
         else:
             print("Invalid choice!")
             return
@@ -157,7 +158,6 @@ class DataAnalytics:
                     sorted= np.sort(DataAnalytics.arr)
                     print("Ascendig Sorted Array :\n ", sorted)
                     print()
-                    return
 
                 elif choice==2:
                     print("Original Array:")
@@ -165,7 +165,6 @@ class DataAnalytics:
                     sorted= np.sort(DataAnalytics.arr)[::-1]
                     print("Descending Sorted Array : \n", sorted)
                     print()
-                    return
                         
                 else:
                     print("Invalid choice !")
@@ -201,27 +200,23 @@ class DataAnalytics:
                 print("Original Array :", DataAnalytics.arr)
                 if choice==1:
                     print("Sum :", np.sum(DataAnalytics.arr))
-                    
-                        
+                             
                 elif choice == 2:
                     print("Mean :", np.mean(DataAnalytics.arr))
-                    
-                        
+                                  
                 elif choice == 3:
-                    print("Median :", np.median(DataAnalytics.arr))
-                    
+                    print("Median :", np.median(DataAnalytics.arr)) 
                     
                 elif choice == 4:
                     print("Standard Deviation :", np.std(DataAnalytics.arr))
-                    return
                         
                 elif choice == 5:
                     print("Variance :", np.var(DataAnalytics.arr))
-                    return
                         
                 else:
                     print("Invalid choice!")
                     return
+                
         elif choice==2:
             while True:
                 print()
@@ -236,12 +231,10 @@ class DataAnalytics:
                 if choice==1:
                     print("Original Array : \n", DataAnalytics.arr)
                     print("Minimum values :\n", np.min(DataAnalytics.arr))
-                    return
                         
                 elif choice == 2:
                     print("Original Array : \n", DataAnalytics.arr)
                     print("Maximum values :\n", np.max(DataAnalytics.arr))
-                    return
 
                 elif choice == 3:
                     print("Original Array : \n", DataAnalytics.arr)
@@ -249,7 +242,6 @@ class DataAnalytics:
                     result = np.percentile(DataAnalytics.arr, per)
                     print(f"{per}th Percentile:", result)
                     
-
                 elif choice == 4:
                     arr2 = list(map(int, input("Enter 1D element array values separated by space:").split()))
                     arr2 = np.array(arr2)
@@ -262,8 +254,8 @@ class DataAnalytics:
                     print("Invalid choice!")
                     return
         else:
-                    print("Invalid choice!")
-                    return
+            print("Invalid choice!")
+            return
 
 obj = DataAnalytics()   
 print("Welcome to the Numpy Analyzer!")
