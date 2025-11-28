@@ -181,40 +181,95 @@ class DataAnalytics:
             return
              
     def aggre(self):
-        print("Choose an aggregate/statistical operation : ")
-        print("1. Sum")
-        print("2. Mean")
-        print("3. Median")
-        print("4. Standard Deviation")
-        print("5. Variance")
-        
+        print("Choose an aggregate/statistical operation :\n ")
+
+        print("1.Aggregate operations")
+        print("2.Statistical operations \n")
+
         choice=int(input("Enter your choice : "))
-        
-        print("Original Array :", DataAnalytics.arr)
+
         if choice==1:
-            print("Sum :", np.sum(DataAnalytics.arr))
-                
-        elif choice == 2:
-            print("Mean :", np.mean(DataAnalytics.arr))
-                
-        elif choice == 3:
-            print("Median :", np.median(DataAnalytics.arr))
+            while True:
+                print("1. Sum")
+                print("2. Mean")
+                print("3. Median")
+                print("4. Standard Deviation")
+                print("5. Variance")
             
-        elif choice == 4:
-            print("Standard Deviation :", np.std(DataAnalytics.arr))
+                choice=int(input("Enter your choice : "))
                 
-        elif choice == 5:
-            print("Variance :", np.var(DataAnalytics.arr))
+                print("Original Array :", DataAnalytics.arr)
+                if choice==1:
+                    print("Sum :", np.sum(DataAnalytics.arr))
+                    
+                        
+                elif choice == 2:
+                    print("Mean :", np.mean(DataAnalytics.arr))
+                    
+                        
+                elif choice == 3:
+                    print("Median :", np.median(DataAnalytics.arr))
+                    
+                    
+                elif choice == 4:
+                    print("Standard Deviation :", np.std(DataAnalytics.arr))
+                    return
+                        
+                elif choice == 5:
+                    print("Variance :", np.var(DataAnalytics.arr))
+                    return
+                        
+                else:
+                    print("Invalid choice!")
+                    return
+        elif choice==2:
+            while True:
+                print()
+                print("1. Minimum values")
+                print("2. Maximum values")
+                print("3. Percentiles values")
+                print("4.corelation of coefficients between arrays \n")
+
+                choice=int(input("Enter your choice : "))
+                print()
                 
+                if choice==1:
+                    print("Original Array : \n", DataAnalytics.arr)
+                    print("Minimum values :\n", np.min(DataAnalytics.arr))
+                    return
+                        
+                elif choice == 2:
+                    print("Original Array : \n", DataAnalytics.arr)
+                    print("Maximum values :\n", np.max(DataAnalytics.arr))
+                    return
+
+                elif choice == 3:
+                    print("Original Array : \n", DataAnalytics.arr)
+                    per = float(input("Enter percentile (0-100): "))
+                    result = np.percentile(DataAnalytics.arr, per)
+                    print(f"{per}th Percentile:", result)
+                    
+
+                elif choice == 4:
+                    arr2 = list(map(int, input("Enter 1D element array values separated by space:").split()))
+                    arr2 = np.array(arr2)
+                    arr3 = list(map(int, input("Enter second 1D array values separated by space:").split()))
+                    arr3 = np.array(arr2)
+                    correlation = np.corrcoef(arr2, arr3)[0, 1]
+                    print("Correlation Coefficient:",correlation)
+                        
+                else:
+                    print("Invalid choice!")
+                    return
         else:
-            print("Invalid choice!")
-            return
-        
-obj = DataAnalytics()        
+                    print("Invalid choice!")
+                    return
+
+obj = DataAnalytics()   
+print("Welcome to the Numpy Analyzer!")
+print("="*28)     
 while True:
     print()
-    print("Welcome to the Numpy Analyzer!")
-    print("="*28)
     print("Choose an option : \n ")
         
     print("1. Create a Numpy Array")
