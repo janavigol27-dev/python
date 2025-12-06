@@ -4,18 +4,17 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 class SalesDataAnalyzer:
-    def _init_(self):
+    def __init__(self):
         self.data = None
-
-    def __del__(self):
-        del self.data
-        print("Data deleted from memory!")
-        
+    
     def load_dataset(self):
         print("== Load Dataset ==")
-        file = input("Enter the path of the dataset (CSV file): ")
-        self.data = pd.read_csv(file)
-        print("\nDataset Loaded Successfully!\n")
+        file = input("Enter the path of the dataset (CSV file) : ")
+        try:
+            self.data = pd.read_csv(file)
+            print("\nDataset Loaded Successfully!\n")
+        except FileNotFoundError:
+            print("ERROR: File Not Found. Please enter correct path.")
         
     def explore_data(self):
         print("== Explore Dataset ==")
@@ -23,7 +22,7 @@ class SalesDataAnalyzer:
         print("2. Display the last 5 rows")
         print("3. Display column names")
         print("4. Display Data types")
-        print("5. Display basic info")
+        print("5. Display basic info \n")
         
         choice=int(input("Enter your choice : "))
 
@@ -36,7 +35,7 @@ class SalesDataAnalyzer:
             print(self.data.tail())
             
         elif choice==3:
-            print("== Display column names==") 
+            print("== Display column names ==") 
             print(self.data.columns.tolist())
             
         elif choice==4:
@@ -44,11 +43,11 @@ class SalesDataAnalyzer:
             print(self.data.dtypes)
             
         elif choice==5:
-            print("== Display basic info ==")
+            print("== Display basic information ==")
             print(self.data.info())
             
         else:
-            print("Your choice is not valid!")
+            print("Your choice is not valid !")
             
     def clean_data(self):
         print("\n===== Perform DataFrame Operations =====")
@@ -61,44 +60,45 @@ class SalesDataAnalyzer:
         choice=int(input("Enter your choice : "))
 
         if choice == 1:
-            col = input("Enter new column name: ")
-            value = input("Enter value to assign: ")
+            print("== Add column ==")
+            col = input("Enter new column name : ")
+            value = input("Enter value to assign : ")
             self.data[col] = value
-            print(f"Column '{col}' added successfully!")
+            print(f"Column '{col}' added successfully !")
         
         elif choice == 2:
-            col = input("Enter column name to delete: ")
+            print("== Delete column ==")
+            col = input("Enter column name to delete : ")
             if col in self.data.columns:
                 del self.data[col]
-                print(f"Column '{col}' deleted successfully!")
+                print(f"Column '{col}' deleted successfully !")
             else:
-                print("Column does not exist!")
+                print("Column does not exist !")
 
         elif choice == 3:
-            col = input("Enter column to sort: ")
+            print("== Sort data ==")
+            col = input("Enter column to sort : ")
             if col in self.data.columns:
-                order = input("Ascending? (yes/no): ")
-                ascending = True if order.lower() == "yes" else False
-                self.data = self.data.sort_values(by=col, ascending=ascending)
-                print(f"Data sorted by '{col}' successfully!")
+                self.data = self.data.sort_values(by=col, ascending=True)
+                print(f"Data sorted by '{col}' in ascending order successfully !")
             else:
-                print("Invalid column name!")
+                print("Invalid column name !")
 
         elif choice== 4:
+            print("== Filtered data ==")
             col = input("Enter column to filter: ")
             val = input("Enter value: ")
 
             if col in self.data.columns:
                 filtered = self.data[self.data[col] == val]
-                print("\n===== FILTERED DATA =====")
                 print(filtered)
             else:
-                print("Invalid column name!")
+                print("Invalid column name !")
 
         elif choice== 5:
+            print("== Group Sum Result ==")
             col = input("Enter column for groupby: ")
             if col in self.data.columns:
-                print("\n===== GROUPBY SUM RESULT =====")
                 print(self.data.groupby(col).sum())
             else:
                 print("Invalid column name!")
@@ -108,7 +108,7 @@ class SalesDataAnalyzer:
 
 
     def handle_missing_data(self):
-        print("\n===== Handle Missing Data  =====")
+        print("== Handle Missing Data  ==")
         print("1. Display rows with missing value ")
         print("2. Fill missimg values with Mean")
         print("3. Drop Rows with Missing Values")
@@ -138,7 +138,7 @@ class SalesDataAnalyzer:
 
     def generate_descriptive_statistics(self):
 
-        print("\n===== Generate Descriptive Statistics =====")
+        print("\n== Generate Descriptive Statistics ==")
         print("1. Show Summary Statistics (describe)")
         print("2. Show Mean of Each Column")
         print("3. Show Median of Each Column")
@@ -252,25 +252,29 @@ class SalesDataAnalyzer:
         plt.savefig(file)     
         print(f"Visualization saved successfully as {file}!")
 
-
-
+    def __del__(self):
+        del self.data
+    
 obj=SalesDataAnalyzer()
 
 while True:
-    print("\n========== Data Analysis & Visualization Program ==========\n")
+    print("="*8,"Data Analysis & Visualization Program","="*8)
+    print("\n Please select an option : ")
     print("1. Load Dataset")
     print("2. Explore Data")
-    print("3. Perform Dataset Operations")
+    print("3. Perform DataFrame Operations")
     print("4. Handle Missing Data")
     print("5. Generate Descriptive Statistics")
     print("6. Data Visualization")
     print("7. Save Visualization")
     print("8. Exit")
+    print("="*25,"\n")
 
     choice = int(input("Enter your choice : "))
+    print()
 
     if choice == 1:
-            SalesDataAnalyzer.load_dataset()
+        SalesDataAnalyzer.load_dataset()
 
     elif choice == 2:
        SalesDataAnalyzer.explore_data()
