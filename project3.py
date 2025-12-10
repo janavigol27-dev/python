@@ -20,7 +20,7 @@ while True:
             "age":int(input("Age : ")),
             "grade":int(input("Grade : ")),
             "bod":input("Date of Birth (YYYY-MM-DD) : "),
-            "subject":input("Subjects (comma-seprated) :  ")
+            "subject":input("/Subjects (comma-seprated) :  ")
         }
         students.append(listt)
         print("\n Student added successfully!")

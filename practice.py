@@ -271,6 +271,57 @@
 
 
 
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+class FitnessTracker:
+    def _init_(self):
+        self.activities = []
+
+    def log_activity(self, exercise_type, duration, calories_burned):
+        if duration <= 0 or calories_burned <= 0:
+            print("Invalid input: Duration and calories burned must be positive numbers.")
+            return
+        self.activities.append({
+            'exercise_type': exercise_type,
+            'duration': duration,
+            'calories_burned': calories_burned
+        })
+
+    def calculate_health_metrics(self):
+        total_calories_burned = sum(activity['calories_burned'] for activity in self.activities)
+        total_duration = sum(activity['duration'] for activity in self.activities)
+        return total_calories_burned, total_duration
+
+    def visualize_progress(self):
+        exercise_types = [activity['exercise_type'] for activity in self.activities]
+        calories_burned = [activity['calories_burned'] for activity in self.activities]
+        plt.bar(exercise_types, calories_burned)
+        plt.xlabel('Exercise Type')
+        plt.ylabel('Calories Burned')
+        plt.title('Calories Burned by Exercise Type')
+        plt.show()
+
+# Example usage:
+tracker = FitnessTracker()
+tracker.log_activity('Running', 30, 200)
+tracker.log_activity('Cycling', 45, 300)
+total_calories_burned, total_duration = tracker.calculate_health_metrics()
+print(f'Total Calories Burned: {total_calories_burned}')
+print(f'Total Duration: {total_duration} minutes')
+tracker.visualize_progress()
+
+
+
+
+
+
+
+
+
+
 
 
 
