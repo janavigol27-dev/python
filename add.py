@@ -215,3 +215,18 @@ print(tracker.filter_activities("Running"))
 
 print("\nFiltered by Date Range (2025-01-05 to 2025-01-20):")
 print(tracker.filter_activities(("2025-01-05", "2025-01-20")))
+
+
+
+# Python gives built-in platforms like Shell and IDLE for writing and running code.
+
+# When you install Python, Shell and IDLE are installed automatically along with it.
+
+
+ 
+
+
+
+
+
+
