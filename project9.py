@@ -4,7 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 class SalesDataAnalyzer:
-    def _init_(self):
+    def __init__(self):
         self.data = None
         
     def load_dataset(self):
@@ -303,7 +303,7 @@ class SalesDataAnalyzer:
             print("Your choice is not valid!\n")
             return
     
-    def _del_(self):
+    def __del__(self):
         del self.data
 
 obj=SalesDataAnalyzer()
