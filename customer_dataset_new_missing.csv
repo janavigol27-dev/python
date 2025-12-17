@@ -1,6 +1,0 @@
-customer_id,name,age,gender,monthly_spending
-1,Amit,25.0,Male,1200.0
-2,Neha,,Female,1500.0
-3,,31.0,Male,
-4,Rahul,29.0,,1800.0
-5,Kiran,,Female,1600.0
